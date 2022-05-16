@@ -11,7 +11,6 @@ class User < ApplicationRecord
     set_user = User.last
     if set_user.email.split("@").last == "sistemadeentregas.com.br"
       set_user.kind = "Admin"
-      p set_user.kind
       set_user.save
     end
   end
