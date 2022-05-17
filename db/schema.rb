@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_16_161946) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_17_233659) do
+  create_table "cars", force: :cascade do |t|
+    t.string "plate"
+    t.string "model"
+    t.string "brand"
+    t.integer "max_load"
+    t.integer "year"
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_cars_on_company_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "corporate_name"
     t.string "brand_name"
@@ -49,5 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_161946) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "companies"
   add_foreign_key "companies", "users"
 end
