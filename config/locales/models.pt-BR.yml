@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      company: Empresa
+    attributes:
+      company:
+        corporate_name: Razão Social
+        brand_name: Nome Fantasia
+        cnpj: CNPJ
+        address: Endereço
+        threshold: Limite
+        freight: Frete Mínimo
+        domain: Domínio
+     
