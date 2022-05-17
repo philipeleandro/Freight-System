@@ -14,7 +14,12 @@
     <header>
       <nav>
         <% if user_signed_in? %>
-          <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
+          <% if current_user.kind == 'Admin' %>
+            <%= link_to 'Cadastrar Empresa', new_company_path %>
+            <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
+          <% end %>
         <% else %>
          <%= link_to 'Entrar', new_user_session_path %>
         <% end %>
