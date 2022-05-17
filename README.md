@@ -1,24 +1,20 @@
-# README
+# 🚚 Sistema de Frete
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="right">
+  <a href='https://github.com/philipeleandro/Freight-System/blob/main/README_EN.md'>English</a>
+</p>
 
-Things you may want to cover:
+## 📖 Descrição
+Sistema frete é uma plataforma para gerenciamento de entregas de produtos que pode ser utilizada por empresas
 
-* Ruby version
+- **Admin:** Cadastra empresas, cria ordens de serviços e consulta preços
+- **Usuário Comum:** Cadastra veículos, configura preços e prazos das empresas, acompanha as ordens de serviços.
+- **Visitante:** Consulta status de entrega
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 🚀 Instrução
+Use o seguinte comando para clonar o repositório:
+```sh
+git clone https://github.com/philipeleandro/Freight-System
+```
+Rode o comando 
+`bundle install`
