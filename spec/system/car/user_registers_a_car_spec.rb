@@ -23,7 +23,7 @@ describe 'Company user registers new car' do
   it 'success' do
     admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
     user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
-    company = Company.create(corporate_name: 'Company LTDA', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '1234567890', freight: 100, threshold: 500, user: admin)
+    company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -47,7 +47,7 @@ describe 'Company user registers new car' do
   it 'incomplete data' do
     admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
     user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
-    company = Company.create(corporate_name: 'Company LTDA', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '1234567890', freight: 100, threshold: 500, user: admin)
+    company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678904789', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
