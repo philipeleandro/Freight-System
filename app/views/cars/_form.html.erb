@@ -1,0 +1,29 @@
+<%= form_with(model: @car) do |f| %>
+  <div>
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+  <div>
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+  <div>
+    <%= f.label :plate %>
+    <%= f.text_field :plate %>
+  </div>
+  <div>
+    <%= f.label :year %>
+    <%= f.number_field :year %>
+  </div>
+  <div>
+    <%= f.label :max_load %>
+    <%= f.number_field :max_load %>
+  </div>
+  <div>
+    <%= f.label :company_id %>
+    <%= f.collection_select :company_id, Company.order(:brand_name), :id, :brand_name %>
+  </div>
+  <div>
+    <%= f.submit 'Cadastrar' %>
+  </div>
+<% end %>

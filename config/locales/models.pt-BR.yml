@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       company: Empresa
+      car: Carro
     attributes:
       company:
         corporate_name: Razão Social
@@ -11,4 +12,12 @@ pt-BR:
         threshold: Limite
         freight: Frete Mínimo
         domain: Domínio
+      car:
+        plate: Placa
+        model: Modelo
+        brand: Marca
+        year: Ano
+        company_id: Empresa
+        max_load: Carregamento Máximo
+
      

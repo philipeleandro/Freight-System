@@ -18,6 +18,7 @@
             <%= link_to 'Cadastrar Empresa', new_company_path %>
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
           <% else %>
+            <%= link_to 'Cadastrar Carro', new_car_path %>
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
           <% end %>
         <% else %>

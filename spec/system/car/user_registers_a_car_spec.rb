@@ -1,0 +1,70 @@
+require 'rails_helper'
+
+describe 'Company user registers new car' do
+  it 'in company index' do
+    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Cadastrar Carro'
+
+    expect(page).to have_field('Placa')
+    expect(page).to have_field('Marca')
+    expect(page).to have_field('Modelo')
+    expect(page).to have_field('Carregamento Máximo')
+    expect(page).to have_field('Ano')
+    expect(page).to have_field('Empresa')
+  end
+
+  it 'success' do
+    admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
+    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
+    company = Company.create(corporate_name: 'Company LTDA', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '1234567890', freight: 100, threshold: 500, user: admin)
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Cadastrar Carro'
+    fill_in 'Placa', with: 'ABX1234'
+    fill_in 'Marca', with: 'Volkswagem'
+    fill_in 'Modelo', with: 'Gol'
+    fill_in 'Carregamento Máximo', with: '300'
+    fill_in 'Ano', with: '2015'
+    select 'Company', from: 'Empresa'
+    click_on 'Cadastrar'
+
+    expect(page).to have_content('Cadastrado com Sucesso')
+    expect(current_path).to eq root_path
+  end
+
+  it 'incomplete data' do
+    admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
+    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
+    company = Company.create(corporate_name: 'Company LTDA', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '1234567890', freight: 100, threshold: 500, user: admin)
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Cadastrar Carro'
+    fill_in 'Placa', with: ''
+    fill_in 'Marca', with: ''
+    fill_in 'Modelo', with: ''
+    fill_in 'Carregamento Máximo', with: ''
+    fill_in 'Ano', with: ''
+    select '', from: 'Empresa'
+    click_on 'Cadastrar'
+
+    expect(page).to have_content('Carro não cadastrado')
+    expect(page).to have_content('Verifique os erros abaixo')
+  end
+end
