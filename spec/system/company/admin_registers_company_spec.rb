@@ -63,4 +63,19 @@ describe 'Admin registers new company' do
     expect(current_path).to eq root_path
     expect(page).to have_content('Página não pode ser carregada')
   end
+
+  it 'Returns when click on Voltar' do
+    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(admin)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Cadastrar Empresa'
+    click_on 'Voltar'
+
+    expect(current_path).to eq companies_path
+  end
 end

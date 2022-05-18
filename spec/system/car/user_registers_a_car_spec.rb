@@ -67,4 +67,19 @@ describe 'Company user registers new car' do
     expect(page).to have_content('Carro não cadastrado')
     expect(page).to have_content('Verifique os erros abaixo')
   end
+
+  it 'Returns when click on Voltar' do
+    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Cadastrar Carro'
+    click_on 'Voltar'
+
+    expect(current_path).to eq root_path
+  end
 end
