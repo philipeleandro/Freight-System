@@ -19,10 +19,17 @@
     <%= f.label :value %>
     <%= f.number_field :value %>
   </div>
-   <div>
-    <%= f.label :company_id %>
-    <%= f.select :company_id, [[Company.find_by(domain: current_user.email.split("@").last).brand_name, Company.find_by(domain: current_user.email.split("@").last).id]] %>
-  </div>
+  <% if Company.where(domain: current_user.email.split("@").last).empty? %>
+    <div>
+      <%= f.label :company_id %>
+      <%= f.select :company_id, [["", ""]], selected: "" %>
+    </div>
+  <% else %>
+    <div>
+      <%= f.label :company_id %>
+      <%= f.select :company_id, [[Company.find_by(domain: current_user.email.split("@").last).brand_name, Company.find_by(domain: current_user.email.split("@").last).id]] %>
+    </div>
+  <% end %>
   <div>
     <%= f.submit 'Cadastrar' %>
   </div>

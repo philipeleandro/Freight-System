@@ -38,7 +38,7 @@ describe 'Admin registers new company' do
     fill_in 'Domínio', with: 'cnb.com.br'
     fill_in 'Frete Mínimo', with: 200
     fill_in 'Limite', with: 3000
-    select 'admin', from: 'User'
+    select admin.id, from: 'User'
     click_on 'Cadastrar'
 
     expect(current_path).to eq companies_path
