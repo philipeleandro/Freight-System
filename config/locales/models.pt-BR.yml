@@ -3,6 +3,7 @@ pt-BR:
     models:
       company: Empresa
       car: Carro
+      price: Preço
     attributes:
       company:
         corporate_name: Razão Social
@@ -19,5 +20,12 @@ pt-BR:
         year: Ano
         company_id: Empresa
         max_load: Carregamento Máximo
+      price:
+        min_volume: Volume Mínimo
+        max_volume: Volume Máximo
+        min_weight: Peso Mínimo
+        max_weight: Peso Máximo
+        value: Valor
+        company_id: Empresa
 
      
