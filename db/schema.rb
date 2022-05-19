@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_18_232527) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_120844) do
   create_table "cars", force: :cascade do |t|
     t.string "plate"
     t.string "model"
@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_232527) do
     t.integer "min_volume"
     t.integer "max_volume"
     t.integer "min_weight"
-    t.integer "max_weigth"
+    t.integer "max_weight"
     t.integer "value"
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
