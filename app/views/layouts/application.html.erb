@@ -19,6 +19,7 @@
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to 'Cadastrar Carro', new_car_path %>
+            <%= link_to 'Configurar Preço', new_price_path %>
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
           <% end %>
         <% else %>

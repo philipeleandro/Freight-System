@@ -1,0 +1,29 @@
+<%= form_with(model: @price) do |f| %>
+  <div>
+    <%= f.label :min_volume %>
+    <%= f.number_field :min_volume %>
+  </div>
+    <div>
+    <%= f.label :max_volume %>
+    <%= f.number_field :max_volume %>
+  </div>
+    <div>
+    <%= f.label :min_weight %>
+    <%= f.number_field :min_weight %>
+  </div>
+    <div>
+    <%= f.label :max_weight %>
+    <%= f.number_field :max_weight %>
+  </div>
+  <div>
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+   <div>
+    <%= f.label :company_id %>
+    <%= f.select :company_id, [[Company.find_by(domain: current_user.email.split("@").last).brand_name, Company.find_by(domain: current_user.email.split("@").last).id]] %>
+  </div>
+  <div>
+    <%= f.submit 'Cadastrar' %>
+  </div>
+<% end %>
