@@ -79,4 +79,38 @@ describe 'Company sets its prices' do
 
     expect(current_path).to eq root_path
   end
+
+  it 'user does not have registered company' do
+    user = User.create(name: 'Impact', email: 'user@impact.com.br', password: '12345678' )
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Configurar Preço'
+  
+    expect(page).to have_field 'Empresa'
+    expect(page).to have_select('Empresa', selected: "")
+  end
+
+  it 'user belong another company' do
+    admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
+    user = User.create(name:'user', email:'admin@magalu.com.br', password:'12345678')
+    company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678974125', freight: 100, threshold: 500, user: admin)
+
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Configurar Preço'
+    click_on 'Cadastrar'
+
+  
+    expect(page).to have_content("Preço não cadastrado")
+  end
 end
