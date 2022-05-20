@@ -4,6 +4,7 @@ pt-BR:
       company: Empresa
       car: Carro
       price: Preço
+      delivery_time: Prazo
     attributes:
       company:
         corporate_name: Razão Social
@@ -27,5 +28,9 @@ pt-BR:
         max_weight: Peso Máximo
         value: Valor
         company_id: Empresa
-
+      delivery_time:
+        min_distance: Distância Mínima
+        max_distance: Distância Máxima
+        days: Dias Úteis
+        company_id: Empresa
      
