@@ -1,0 +1,28 @@
+<%= form_with(model: @delivery_time) do |f| %>
+  <div>
+    <%= f.label :min_distance %>
+    <%= f.number_field :min_distance %>
+  </div>
+    <div>
+    <%= f.label :max_distance %>
+    <%= f.number_field :max_distance %>
+  </div>
+    <div>
+    <%= f.label :days %>
+    <%= f.number_field :days %>
+  </div>
+  <% if Company.where(domain: current_user.email.split("@").last).empty? %>
+    <div>
+      <%= f.label :company_id %>
+      <%= f.select :company_id, [["", ""]], selected: "" %>
+    </div>
+  <% else %>
+    <div>
+      <%= f.label :company_id %>
+      <%= f.select :company_id, [[Company.find_by(domain: current_user.email.split("@").last).brand_name, Company.find_by(domain: current_user.email.split("@").last).id]] %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.submit 'Cadastrar' %>
+  </div>
+<% end %>

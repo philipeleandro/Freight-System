@@ -15,12 +15,13 @@
       <nav>
         <% if user_signed_in? %>
           <% if current_user.kind == 'Admin' %>
-            <%= link_to 'Cadastrar Empresa', new_company_path %>
-            <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
+            <%= link_to 'Cadastrar Empresa', new_company_path %> |
+            <%= button_to 'Sair',  destroy_user_session_path, method: :delete %> 
           <% else %>
-            <%= link_to 'Cadastrar Carro', new_car_path %>
-            <%= link_to 'Configurar Preço', new_price_path %>
-            <%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
+            <%= link_to 'Cadastrar Carro', new_car_path %> |
+            <%= link_to 'Configurar Preço', new_price_path %> |
+            <%= link_to 'Configurar Prazo', new_delivery_time_path %> |
+            <%= button_to 'Sair',  destroy_user_session_path, method: :delete %> 
           <% end %>
         <% else %>
          <%= link_to 'Entrar', new_user_session_path %>

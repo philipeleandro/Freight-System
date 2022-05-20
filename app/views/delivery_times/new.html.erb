@@ -1,0 +1,14 @@
+<h1>Configure prazo de entrega da empresa</h1>
+
+<% if(@delivery_time.errors.any?) %>
+  <p>Verifique os erros abaixo:</p>
+  <ul>
+  <% @delivery_time.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Voltar', root_path %>
