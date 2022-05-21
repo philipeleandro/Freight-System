@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Company sets its delivery times' do
   it 'in company index' do
-    admin = User.create(name: 'admin', email: 'admin@sistema0deentregas.com.br', password: '12345678')
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
     user = User.create(name: 'Impact', email: 'user@impact.com.br', password: '12345678' )
 
