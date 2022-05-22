@@ -1,1 +1,13 @@
 <h1>Sistema de Transportadoras</h1>
+
+<% if user_signed_in? %>
+  <% if current_user.kind == 'Regular' %>
+    <% if Company.find_by(domain: current_user.email.split("@").last) == nil %>
+     <h3>Bem-vindo</h3>
+    <% else %>
+      <h3>Bem-vindo <%= Company.find_by(domain: current_user.email.split("@").last).brand_name %></h3>
+    <% end %>
+  <% end %>
+<% else %>
+  <h3> Bem-vindo visitante </h3>
+<% end %>
