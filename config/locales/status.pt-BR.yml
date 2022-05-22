@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    attributes:
+      order/status:
+        pendent_accept: Pendente
+        accepted: Aceito
+        refused: Recusado
+        finished: Finalizado
+        in_progress: Em Progresso

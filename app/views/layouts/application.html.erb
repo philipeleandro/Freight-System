@@ -16,9 +16,11 @@
         <% if user_signed_in? %>
           <% if current_user.kind == 'Admin' %>
             <%= link_to 'Cadastrar Empresa', new_company_path %> |
+            <%= link_to 'Ordens de Serviço', orders_path %> |
             <%= link_to 'Criar Ordem de Serviço', new_order_path %> |
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %> 
           <% else %>
+            <%= link_to 'Serviços', orders_path %> |
             <%= link_to 'Cadastrar Carro', new_car_path %> |
             <%= link_to 'Configurar Preço', new_price_path %> |
             <%= link_to 'Configurar Prazo', new_delivery_time_path %> |

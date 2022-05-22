@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+
+  def index
+    @orders = Order.all
+  end
+
   def new
     @product = Product.new
     @order = Order.new
