@@ -65,7 +65,7 @@ describe 'Admin register a new order' do
       click_on 'Entrar'
     end
     click_on 'Criar Ordem de Serviço'
-    select '', from: 'Empresa'
+    select 'Impact', from: 'Transportadora'
     click_on 'Cadastrar'
 
     expect(page).to have_content 'Verifique os erros abaixo:'

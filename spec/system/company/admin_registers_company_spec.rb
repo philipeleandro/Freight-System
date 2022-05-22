@@ -46,7 +46,7 @@ describe 'Admin registers new company' do
     expect(page).to have_content('CNB')
     expect(page).to have_content('CNPJ: 12345678945612')
     expect(page).to have_content('Frete Mínimo: R$ 200,00 ')
-    expect(page).to have_content('Limite: 3000km ')
+    expect(page).to have_content('Limite: 3000km')
   end
 
   it 'not admin' do
