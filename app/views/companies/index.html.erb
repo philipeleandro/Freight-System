@@ -1,1 +1,23 @@
-<h1>Admin</h1>
+<h1>Sistema de Transportadoras</h1>
+
+<% if current_user.kind == 'Admin' %>
+  <h3> Bem-vindo <%= current_user.name %></h3>
+<% end %>
+<% @companies.each do |c| %>
+   <div>
+      <h3><%= c.brand_name %></h3>
+      <dl>
+        <dt>CNPJ: </dt>
+        <dd><%= c.cnpj %></dd>
+        <dt>Frete Mínimo:  </dt>
+        <dd>R$ <%= c.freight %>,00</dd>
+        <dt>Limite: </dt>
+        <dd><%= c.threshold %>km</dd>
+      </dl>
+    </div>
+  <% end %>
+
+  <% if @companies.empty? %>
+    <p>Não há transportadoras cadastradas</p>
+  <% end %>
+ 

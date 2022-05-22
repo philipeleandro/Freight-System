@@ -11,7 +11,7 @@ describe 'Admin views companies' do
       click_on 'Entrar'
     end
 
-    expect(page).to have_content('Admin')
+    expect(page).to have_content('Sistema de Transportadoras')
   end
 
   it 'must be logged in' do
