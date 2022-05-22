@@ -1,0 +1,23 @@
+<%= form_for(@order)  do |f| %>
+  <h3>Informações do Produto</h3>
+    <%= f.fields_for @product do |builder| %>
+    <%= render 'order_fields', :f => builder %>
+  <% end %>
+  <br>
+  <h3>Informações da Ordem de Serviço</h3>
+  <div>
+    <%= f.label :receiver_name %>
+    <%= f.text_field :receiver_name %>
+  </div>
+  <div>
+    <%= f.label :delivery_address %>
+    <%= f.text_field :delivery_address %>
+  </div>
+  <div>
+    <%= f.label :company_id %>
+    <%= f.collection_select :company_id, Company.order(:brand_name), :id, :brand_name %>
+  </div>
+    <div>
+    <%= f.submit 'Cadastrar' %>
+  </div>
+<% end %>

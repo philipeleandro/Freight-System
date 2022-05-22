@@ -16,6 +16,7 @@
         <% if user_signed_in? %>
           <% if current_user.kind == 'Admin' %>
             <%= link_to 'Cadastrar Empresa', new_company_path %> |
+            <%= link_to 'Criar Ordem de Serviço', new_order_path %> |
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %> 
           <% else %>
             <%= link_to 'Cadastrar Carro', new_car_path %> |
