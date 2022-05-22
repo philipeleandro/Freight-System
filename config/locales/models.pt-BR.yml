@@ -5,6 +5,8 @@ pt-BR:
       car: Carro
       price: Preço
       delivery_time: Prazo
+      product: Produto
+      order: Ordem de Serviço
     attributes:
       company:
         corporate_name: Razão Social
@@ -33,4 +35,15 @@ pt-BR:
         max_distance: Distância Máxima
         days: Dias Úteis
         company_id: Empresa
+      product:
+        width: Largura
+        height: Altura
+        depth: Profundidade
+        weight: Peso
+        sku: SKU
+        address: Endereço do Produto
+      order: 
+        company_id: Transportadora
+        receiver_name: Nome do Destinatário
+        delivery_address: Destinatário
      

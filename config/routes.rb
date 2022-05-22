@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :cars, only: [:new, :create]
   resources :prices, only: [:new, :create]
   resources :delivery_times, only: [:new, :create]
+  resources :orders, only: [:create, :new]
+  resources :products, only: [:create, :new]
 end

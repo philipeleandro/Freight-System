@@ -2,6 +2,7 @@ class Company < ApplicationRecord
   belongs_to :user
   has_many :cars
   has_many :prices
+  has_many :orders
 
   validates :corporate_name, :brand_name, :cnpj, :address, :freight, :threshold, :domain, presence: true
   validates :cnpj, uniqueness: true
