@@ -46,3 +46,4 @@ pt-BR:
         company_id: Transportadora
         receiver_name: Nome do Destinatário
         delivery_address: Destinatário
+        car_id: Carro

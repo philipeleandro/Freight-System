@@ -1,7 +1,7 @@
 <h1>Serviços</h1>
 <%  transporter = Company.where(domain: current_user.email.split("@")).last %>
 <% if current_user.kind == 'Regular' %>
-  <% if @orders.where(company_id: Company.find_by(domain: current_user.email.split("@").last).id).empty? %>
+  <% if Company.find_by(domain: current_user.email.split("@").last).nil? || @orders.where(company_id: Company.find_by(domain: current_user.email.split("@").last).id).empty? %>
     <p>Não há ordem de serviço para sua empresa</p>
   <% else %>
     <% @orders.where(company_id: transporter.id).each do |o| %>
@@ -13,7 +13,11 @@
           <dt>Para: </dt>
           <dd><%= o.delivery_address %></dd>
         </dl>
-        <%= button_to 'Aceitar' %> <%= button_to 'Recusar' %>
+        <% if o.status != "pendent_accept" %>
+        <% else %>
+          <%= link_to 'Aceitar', edit_order_path(o.id) %>
+          <%= link_to "Recusar", edit_order_path(o, :status => "refused") %>
+        <% end %>
        </div>
     <% end %>
   <% end %>

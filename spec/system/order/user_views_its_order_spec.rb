@@ -19,7 +19,7 @@ describe 'User views orders' do
     expect(page).to have_content('Serviços')
     expect(page).to have_content('Status: Pendente')
     expect(page).to have_content('Para: Rua das entregas, 700')
-    expect(page).to have_button('Aceitar')
+    expect(page).to have_link('Aceitar')
   end
 
   it 'Only its orders' do
@@ -42,7 +42,6 @@ describe 'User views orders' do
 
     expect(page).to have_content('Status: Aceito')
     expect(page).to have_content('Para: Rua entregas, 700')
-    expect(page).to have_button('Aceitar')
   end
 
   it 'does not exist registered order' do
