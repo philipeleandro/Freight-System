@@ -30,16 +30,6 @@ RSpec.describe Product, type: :model do
       end
     end
 
-    context 'uniqueness' do
-      it 'false when SKU already exist' do
-        product_one = Product.create(depth: 10, height: 40, width: 20, weight: 5, sku: 'ASD231ADDS', address: 'Rua viva, 10')
-        product_two = Product.create(depth: 10, height: 40, width: 20, weight: 5, sku: 'ASD231ADDS', address: 'Rua viva, 10')
-
-        expect(product_one.valid?).to eq true
-        expect(product_two.valid?).to eq false
-      end
-    end
-
     context 'format' do
       it 'sku must have 10 digits' do
         product_one = Product.create(depth: 15, height: 20, width: 20, weight: 10, sku: 'ASDWED5AS', address: 'Rua viva, 10')
