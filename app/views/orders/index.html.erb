@@ -13,10 +13,18 @@
           <dt>Para: </dt>
           <dd><%= o.delivery_address %></dd>
         </dl>
-        <% if o.status != "pendent_accept" %>
-        <% else %>
+        <% if o.status == "pendent_accept" %>
           <%= link_to 'Aceitar', edit_order_path(o.id) %>
           <%= link_to "Recusar", edit_order_path(o, :status => "refused") %>
+        <% elsif o.status == "finished" || o.status == "refused" %>
+
+        <% else %>
+          <%= link_to "Atualizar rota do pedido", edit_order_path(o.id) %><br>
+          <% if o.position.nil? || o.time.nil? || o.date.nil? %>
+             Verifique se local, horário e data foram preenchidos corretamente. Atualiza mais uma vez!
+          <% else %>
+             Última atualização: <%= o.position %>, <%= I18n.localize(o.date)  %> - <%= o.time.strftime("%R") %>
+          <% end %>
         <% end %>
        </div>
     <% end %>

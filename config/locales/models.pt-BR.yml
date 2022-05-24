@@ -47,3 +47,6 @@ pt-BR:
         receiver_name: Nome do Destinatário
         delivery_address: Destinatário
         car_id: Carro
+        date: Data
+        time: Horário
+        position: Posição

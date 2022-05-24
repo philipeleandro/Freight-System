@@ -1,10 +1,29 @@
 <%= form_with(model: @order) do |f| %>
   <% if params[:status] == "refused" %>
-      <div>
+    <div>
       <%= f.label :status %>
       <%= f.select :status, [['Recuso', 'refused']] %>
     </div>
     <h3>Clique em Finalizar</h3>
+    <%= f.submit 'Finalizar' %> 
+  <% elsif @order.status == "accepted" || @order.status == "in_progress" %>
+    <div>
+      <%= f.label :status %>
+      <%= f.select :status, [['Em Progresso', 'in_progress'], ['Finalizado', 'finished']] %>
+    </div>
+    <div>
+      <%= f.label :position %>
+      <%= f.text_field :position %>
+    </div>
+    <div>
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </div>
+    <div>
+      <%= f.label :time %>
+      <%= f.time_field :time %>
+    </div>
+      <h3>Clique em Finalizar</h3>
     <%= f.submit 'Finalizar' %> 
   <% else %>
     <h3>Escolha o Carro</h3>
