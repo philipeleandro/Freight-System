@@ -22,7 +22,7 @@ describe 'Visitor searches an order' do
     expect(page).to have_content("Resultado da busca por: #{order.code}")
     expect(page).to have_content('Origem: Rua viva, 10')
     expect(page).to have_content('Destino: Rua das entregas, 700')
-    expect(page).to have_content("Ultima Atualização: Galpão de Minas, 25/05/2022, #{order.time.strftime("%R")}")
+    expect(page).to have_content("Ultima Atualização: Galpão de Minas, #{I18n.localize(Date.today)}, #{order.time.strftime("%R")}")
   end
 
   it 'order does not have position' do

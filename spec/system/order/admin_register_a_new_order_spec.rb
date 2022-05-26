@@ -50,13 +50,13 @@ describe 'Admin register a new order' do
     select 'Impact', from: 'Transportadora'
     click_on 'Cadastrar'
 
-    expect(current_path).to eq root_path
-    expect(page).to have_content 'Intervalo de prazo cadastrado'
+    expect(current_path).to eq companies_path
+    expect(page).to have_content('Ordem de serviço cadastrada')
   end
 
   it 'fail' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
+    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '74125896321456', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
