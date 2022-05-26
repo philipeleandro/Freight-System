@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create]
+  before_action :authenticate_user!, only: [:check_price, :index, :new, :create]
   def index
     if current_user.kind == "Admin"
       @companies = Company.all
