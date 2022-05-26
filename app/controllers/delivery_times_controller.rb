@@ -1,5 +1,10 @@
 class DeliveryTimesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+
+  def index
+    @delivery_times = DeliveryTime.all
+  end
+  
   def new
     @delivery_time = DeliveryTime.new
   end

@@ -1,0 +1,31 @@
+<h3>Tabela de Prazos</h3>
+<% company = Company.find_by(domain: current_user.email.split("@").last) %>
+
+  <% if company.nil? %>
+    <p>Não há prazos cadastrados</p>
+  <% else %>
+    <% if @delivery_times.where(company_id: Company.find_by(domain: current_user.email.split("@").last).id).any? %>
+        <table>
+          <thead>
+            <tr>
+              <th>Distância Mínima</th>
+              <th>Distância Máxima</th>
+              <th>Dias Úteis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @delivery_times.where(company_id: Company.find_by(domain: current_user.email.split("@").last).id).each do |delivery_time| %>
+              <tr>
+                <td><%= delivery_time.min_distance %></td>
+                <td><%= delivery_time.max_distance %></td>
+                <td><%= delivery_time.days %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>Não há prazos cadastrados</p>
+      <% end %>
+  <% end %>  
+
+<%= link_to 'Voltar', root_path%>

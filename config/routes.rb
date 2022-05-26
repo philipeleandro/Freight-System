@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :cars, only: [:new, :create]
   resources :prices, only: [:new, :create]
-  resources :delivery_times, only: [:new, :create]
+  resources :delivery_times, only: [:index, :new, :create]
   resources :products, only: [:create, :new]
   
   resources :companies, only: [:index, :new, :create] do
