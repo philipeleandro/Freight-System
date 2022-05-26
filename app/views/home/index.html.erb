@@ -10,4 +10,9 @@
   <% end %>
 <% else %>
   <h3> Bem-vindo visitante </h3>
+     <%= form_with(url: search_orders_path, method: :get) do |f| %>
+        <%= f.label :query, 'Buscar Pedido' %>
+        <%= f.text_field :query %>
+        <%= f.submit 'Buscar' %>
+    <% end %>
 <% end %>

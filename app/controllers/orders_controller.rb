@@ -39,6 +39,12 @@ class OrdersController < ApplicationController
     end
   end
 
+  def search
+    @code = params["query"]
+    @order = Order.find_by(code: @code)
+    @product = Product.find_by(id: @order.product_id)
+  end
+
   private
   def product_params
     params.require(:order)["product"].permit(:width, :depth, :height, :weight, :sku, :address)

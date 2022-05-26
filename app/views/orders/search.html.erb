@@ -1,0 +1,18 @@
+<h1>Resultado da busca por: <%= @code %></h1>
+
+<% if @order.present? %>
+  <dl>
+    <dt>Origem:</dt>
+    <dd><%= @product.address %></dd>
+    <dt>Destino:</dt>
+    <dd><%= @order.delivery_address %></dd>
+    <dt>Ultima Atualização:</dt>
+    <% if @order.position.nil? || @order.date.nil? || @order.time.nil? %>
+      <dd>Ainda não atualizado</dd>
+    <% else %>
+      <dd><%= @order.position %>, <%= I18n.localize(@order.date) %>, <%= @order.time.strftime("%R") %></dd>
+    <% end %>
+  </dl>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>
