@@ -1,0 +1,35 @@
+<h3>Tabela de Preços</h3>
+<% company = Company.find_by(domain: current_user.email.split("@").last) %>
+
+<% if company.nil? %>
+  <p>Não há preços cadastrados</p>
+<% else %>
+  <% if @prices.where(company_id: Company.find_by(domain: current_user.email.split("@").last).id).any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Volume Mínimo</th>
+          <th>Volume Máximo</th>
+          <th>Peso Mínimo</th>
+          <th>Peso Máximo</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @prices.where(company_id: Company.find_by(domain: current_user.email.split("@").last).id).each do |price| %>
+          <tr>
+            <td><%= price.min_volume %></td>
+            <td><%= price.max_volume %></td>
+            <td><%= price.min_weight %></td>
+            <td><%= price.max_weight %></td>
+            <td><%= number_to_currency(price.value) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>Não há preços cadastrados</p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', root_path%>
