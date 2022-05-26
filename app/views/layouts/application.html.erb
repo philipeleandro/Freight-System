@@ -17,6 +17,7 @@
           <% if current_user.kind == 'Admin' %>
             <%= link_to 'Cadastrar Empresa', new_company_path %> |
             <%= link_to 'Ordens de Serviço', orders_path %> |
+            <%= link_to 'Consulta de Preço', check_price_companies_path %> |
             <%= link_to 'Criar Ordem de Serviço', new_order_path %> |
             <%= button_to 'Sair',  destroy_user_session_path, method: :delete %> 
           <% else %>

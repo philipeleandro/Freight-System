@@ -1,0 +1,56 @@
+<h1>Busca de Preço</h1>
+
+<%= form_with(url: check_price_companies_path, method: :get) do |f| %>
+  <div>
+    <%= f.label :weight, 'Peso' %>
+    <%= f.text_field :weight %>
+  </div>
+  <div>
+    <%= f.label :height, 'Altura' %>
+    <%= f.text_field :height %>
+  </div>
+  <div>
+    <%= f.label :width, 'Largura' %>
+    <%= f.text_field :width %>
+  </div>
+  <div>
+    <%= f.label :depth, 'Profundidade' %>
+    <%= f.text_field :depth %>
+  </div>
+    <div>
+    <%= f.label :distance, 'Distância' %>
+    <%= f.text_field :distance %>
+  </div>
+  <div>
+    <%= f.submit 'Buscar' %>
+  </div>
+<% end %>
+
+<h3>Resultado:</h3>
+<%= @volume%>
+<% if @prices.empty? %>
+  <p>Nenhuma empresa disponível</p>
+<% else %>
+  <% @prices.each do |price| %>
+    <div>
+      <h3>Transportadora: <%= Company.find_by(id: price.company_id).corporate_name %></h3>
+      <ul>
+        <dt>Valor Frete: </dt>
+        <% if (@distance) < (Company.find_by(id: price.company_id).threshold) %>
+          <% if  (@distance * price.value) < (Company.find_by(id: price.company_id).freight) %>
+            <dd><%= number_to_currency(Company.find_by(id: price.company_id).freight) %></dd>
+          <% else %>
+            <dd><%= number_to_currency(price.value * @distance)%></dd>
+          <% end %>
+        <% else %>
+          <dd><%= number_to_currency(price.value * @distance) %></dd>
+        <% end %>
+        <dt>Prazo: </dt>
+        <% DeliveryTime.where("company_id = ? AND min_distance <= ? AND max_distance >= ?", price.company_id, @distance, @distance).each do |delivery_time| %>
+          <dd><%= delivery_time.days %> dia(s) útil</dd>
+        <% end %>
+      </ul>
+    </div>  
+  <% end %>
+<% end %>
+
