@@ -88,4 +88,20 @@ describe 'Admin register a new order' do
 
     expect(current_path).to eq companies_path
   end
+
+  it 'user not admin tries to create order' do
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
+    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '74125896321456', freight: 100, threshold: 500, user: admin)
+    user = User.create(name: 'Impact', email: 'user@impact.com.br', password: '12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    visit new_order_path
+
+    expect(page).to have_content 'Página não pode ser carregad'
+  end
 end

@@ -6,8 +6,14 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @order = Order.new
+    if user_signed_in?
+      if current_user.kind == 'Admin'
+        @product = Product.new
+        @order = Order.new
+      else
+        redirect_to root_path, notice: 'Página não pode ser carregada'
+      end
+    end
   end
 
   def create

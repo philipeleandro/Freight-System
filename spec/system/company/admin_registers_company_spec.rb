@@ -64,6 +64,36 @@ describe 'Admin registers new company' do
     expect(page).to have_content('Página não pode ser carregada')
   end
 
+  it 'fail' do
+    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(admin)
+    within('form') do
+      click_on 'Entrar'
+    end
+    click_on 'Cadastrar Empresa'
+    click_on 'Cadastrar'
+
+    expect(page).to have_content('Empresa não cadastrado')
+  end
+
+  it 'not admin' do
+    user = User.create(name:'user', email:'admin@sistemadeentregas.com', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    visit companies_path
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content('Página não pode ser carregada')
+  end
+
   it 'Returns when click on Voltar' do
     admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
 
@@ -77,5 +107,20 @@ describe 'Admin registers new company' do
     click_on 'Voltar'
 
     expect(current_path).to eq companies_path
+  end
+
+  it 'not admin and try to create company' do
+    user = User.create(name:'user', email:'admin@sistemadeentregas.com', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(user)
+    within('form') do
+      click_on 'Entrar'
+    end
+    visit new_company_path
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content('Erro ao carregar a página')
   end
 end
