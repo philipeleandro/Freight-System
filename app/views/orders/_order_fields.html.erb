@@ -1,26 +1,26 @@
     <div>
       <%= f.label :width, 'Largura' %>
-      <%= f.number_field :width %>
+      <%= f.number_field :width, placeholder: "cm" %>
     </div>
     <div>
       <%= f.label :height, 'Altura' %>
-      <%= f.number_field :height %>
+      <%= f.number_field :height, placeholder: "cm" %>
     </div>
       <div>
       <%= f.label :depth, 'Profundidade' %>
-      <%= f.number_field :depth %>
+      <%= f.number_field :depth, placeholder: "cm" %>
     </div>
     <div>
       <%= f.label :weight, 'Peso' %>
-      <%= f.number_field :weight %>
+      <%= f.number_field :weight, placeholder: "Kg" %>
     </div>
     <div>
       <%= f.label :sku, 'SKU' %>
-      <%= f.text_field :sku %>
+      <%= f.text_field :sku, placeholder: "Código Alfanumérico de 10 digitos" %>
     </div>
     <div>
       <%= f.label :address, 'Endereço do Produto' %>
-      <%= f.text_field :address %>
+      <%= f.text_field :address, placeholder: "Digite aqui" %>
     </div>
 
 

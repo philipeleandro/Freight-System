@@ -3,23 +3,23 @@
 <%= form_with(url: check_price_companies_path, method: :get) do |f| %>
   <div>
     <%= f.label :weight, 'Peso' %>
-    <%= f.text_field :weight %>
+    <%= f.text_field :weight, placeholder: "Kg" %>
   </div>
   <div>
     <%= f.label :height, 'Altura' %>
-    <%= f.text_field :height %>
+    <%= f.text_field :height, placeholder: "cm" %>
   </div>
   <div>
     <%= f.label :width, 'Largura' %>
-    <%= f.text_field :width %>
+    <%= f.text_field :width, placeholder: "cm" %>
   </div>
   <div>
     <%= f.label :depth, 'Profundidade' %>
-    <%= f.text_field :depth %>
+    <%= f.text_field :depth, placeholder: "cm" %>
   </div>
     <div>
     <%= f.label :distance, 'Distância' %>
-    <%= f.text_field :distance %>
+    <%= f.text_field :distance, placeholder: "Km" %>
   </div>
   <div>
     <%= f.submit 'Buscar' %>

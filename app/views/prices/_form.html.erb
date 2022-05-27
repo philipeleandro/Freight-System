@@ -1,23 +1,23 @@
 <%= form_with(model: @price) do |f| %>
   <div>
     <%= f.label :min_volume %>
-    <%= f.number_field :min_volume %>
+    <%= f.number_field :min_volume, placeholder: "m³" %>
   </div>
     <div>
     <%= f.label :max_volume %>
-    <%= f.number_field :max_volume %>
+    <%= f.number_field :max_volume, placeholder: "m³" %>
   </div>
     <div>
     <%= f.label :min_weight %>
-    <%= f.number_field :min_weight %>
+    <%= f.number_field :min_weight, placeholder: "Kg" %>
   </div>
     <div>
     <%= f.label :max_weight %>
-    <%= f.number_field :max_weight %>
+    <%= f.number_field :max_weight, placeholder: "Kg" %>
   </div>
   <div>
     <%= f.label :value %>
-    <%= f.number_field :value %>
+    <%= f.number_field :value, placeholder: "R$" %>
   </div>
   <% if Company.where(domain: current_user.email.split("@").last).empty? %>
     <div>

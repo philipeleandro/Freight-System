@@ -1,15 +1,15 @@
 <%= form_with(model: @delivery_time) do |f| %>
   <div>
     <%= f.label :min_distance %>
-    <%= f.number_field :min_distance %>
+    <%= f.number_field :min_distance, placeholder: "Km" %>
   </div>
     <div>
     <%= f.label :max_distance %>
-    <%= f.number_field :max_distance %>
+    <%= f.number_field :max_distance, placeholder: "Km" %>
   </div>
     <div>
     <%= f.label :days %>
-    <%= f.number_field :days %>
+    <%= f.number_field :days, placeholder: "Digite aqui" %>
   </div>
   <% if Company.where(domain: current_user.email.split("@").last).empty? %>
     <div>

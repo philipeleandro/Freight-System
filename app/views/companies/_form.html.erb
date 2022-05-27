@@ -1,31 +1,31 @@
 <%= form_with(model: @company) do |f| %>
   <div>
     <%= f.label :corporate_name %>
-    <%= f.text_field :corporate_name %>
+    <%= f.text_field :corporate_name, placeholder: "Digite aqui" %>
   </div>
   <div>
     <%= f.label :brand_name %>
-    <%= f.text_field :brand_name %>
+    <%= f.text_field :brand_name, placeholder: "Digite aqui" %>
   </div>
   <div>
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, placeholder: "Digite aqui" %>
   </div>
   <div>
     <%= f.label :cnpj %>
-    <%= f.text_field :cnpj %>
+    <%= f.text_field :cnpj, placeholder: "14 dígitos" %>
   </div>
   <div>
     <%= f.label :domain %>
-    <%= f.text_field :domain %>
+    <%= f.text_field :domain, placeholder: "exemplo.com.br" %>
   </div>
   <div>
     <%= f.label :freight %>
-    <%= f.number_field :freight %>
+    <%= f.number_field :freight, placeholder: "R$" %>
   </div>
     <div>
     <%= f.label :threshold %>
-    <%= f.number_field :threshold %>
+    <%= f.number_field :threshold, placeholder: "Km" %>
   </div>
   <div>
     <%= f.label :user_id %>
