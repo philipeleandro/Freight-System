@@ -34,7 +34,6 @@ class OrdersController < ApplicationController
     if @order.update(order_params)
       redirect_to orders_path, notice: 'Ordem de serviço atualizada'
     else
-      flash.now[:notice] = 'Não foi possível finalizar'
       render 'edit'
     end
   end

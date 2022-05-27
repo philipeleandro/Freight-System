@@ -69,6 +69,7 @@ describe 'Admin register a new order' do
     click_on 'Cadastrar'
 
     expect(page).to have_content 'Verifique os erros abaixo:'
+    expect(page).to have_content 'Ordem de serviço não cadastrado'
   end
 
   it 'Returns when click on Voltar' do
