@@ -1,5 +1,8 @@
 # 🚚 Freight System
 
+## Test Coverage - SimpleCov
+![image](https://user-images.githubusercontent.com/92264330/170708155-7d363d2d-03d6-48d0-a1c5-4ec9dd8a5128.png)
+
 <p align="right">
   <a href='https://github.com/philipeleandro/Freight-System/blob/main/README.md'>Portuguese-BR</a>
 </p>
