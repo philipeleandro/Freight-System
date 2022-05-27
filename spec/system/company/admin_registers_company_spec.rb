@@ -77,6 +77,7 @@ describe 'Admin registers new company' do
     click_on 'Cadastrar'
 
     expect(page).to have_content('Empresa não cadastrado')
+    expect(page).to have_content('Verifique os erros abaixo:')
   end
 
   it 'not admin' do

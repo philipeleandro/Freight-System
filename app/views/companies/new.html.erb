@@ -1,5 +1,14 @@
 <h1>Cadastre a nova empresa</h1>
 
+<% if(@company.errors.any?) %>
+  <p>Verifique os erros abaixo:</p>
+  <ul>
+  <% @company.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <%= render 'form' %>
 
 <%= link_to 'Voltar', companies_path %>
