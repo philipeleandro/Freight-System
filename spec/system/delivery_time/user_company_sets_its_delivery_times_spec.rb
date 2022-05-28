@@ -90,4 +90,19 @@ describe 'Company sets its delivery times' do
 
     expect(current_path).to eq root_path
   end
+
+  it 'admin tries to access delivery time table page' do
+    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(admin)
+    within('form') do
+      click_on 'Entrar'
+    end
+    visit delivery_times_path
+
+    expect(current_path).to eq companies_path
+    expect(page).to have_content('Erro ao carregar a página')
+  end
 end

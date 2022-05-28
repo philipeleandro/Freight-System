@@ -1,11 +1,19 @@
 class PricesController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create]
   def index
-    @prices = Price.all
+    if current_user.kind == "Regular"
+      @prices = Price.all
+    else
+      redirect_to companies_path, notice: 'Erro ao carregar a página'
+    end
   end
   
   def new
-    @price = Price.new
+    if current_user.kind == "Regular"
+      @price = Price.new
+    else
+      redirect_to companies_path, notice: 'Erro ao carregar a página'
+    end
   end
 
   def create

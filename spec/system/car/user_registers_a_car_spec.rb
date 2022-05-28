@@ -21,7 +21,7 @@ describe 'Company user registers new car' do
   end
 
   it 'success' do
-    admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
+    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
     user = User.create(name:'user', email:'admin@company.com.br', password:'12345678')
     company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678974125', freight: 100, threshold: 500, user: admin)
 
@@ -115,5 +115,20 @@ describe 'Company user registers new car' do
 
   
     expect(page).to have_content("Carro não cadastrado")
+  end 
+
+  it 'admin tries to access new car page' do
+    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(admin)
+    within('form') do
+      click_on 'Entrar'
+    end
+    visit new_car_path
+
+    expect(current_path).to eq companies_path
+    expect(page).to have_content('Erro ao carregar a página')
   end
 end

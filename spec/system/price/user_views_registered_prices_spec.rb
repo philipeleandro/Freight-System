@@ -58,4 +58,19 @@ describe 'User views prices' do
 
     expect(current_path).to eq root_path
   end
+
+  it 'admin tries to access new price table page' do
+    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+
+    visit root_path
+    click_on 'Entrar'
+    login_as(admin)
+    within('form') do
+      click_on 'Entrar'
+    end
+    visit prices_path
+
+    expect(current_path).to eq companies_path
+    expect(page).to have_content('Erro ao carregar a página')
+  end
 end
