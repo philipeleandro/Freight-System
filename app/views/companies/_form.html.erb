@@ -1,4 +1,4 @@
-<%= form_with(model: @company) do |f| %>
+<%= form_with(model: @company, data: { turbo: false }) do |f| %>
   <div>
     <%= f.label :corporate_name %>
     <%= f.text_field :corporate_name, placeholder: "Digite aqui" %>

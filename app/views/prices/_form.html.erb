@@ -1,4 +1,4 @@
-<%= form_with(model: @price) do |f| %>
+<%= form_with(model: @price, data: { turbo: false }) do |f| %>
   <div>
     <%= f.label :min_volume %>
     <%= f.number_field :min_volume, placeholder: "m³" %>

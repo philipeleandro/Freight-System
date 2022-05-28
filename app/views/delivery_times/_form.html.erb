@@ -1,4 +1,4 @@
-<%= form_with(model: @delivery_time) do |f| %>
+<%= form_with(model: @delivery_time, data: { turbo: false }) do |f| %>
   <div>
     <%= f.label :min_distance %>
     <%= f.number_field :min_distance, placeholder: "Km" %>
