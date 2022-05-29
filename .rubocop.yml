@@ -2,3 +2,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:
   Enabled: false
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context', 'it']
