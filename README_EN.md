@@ -1,4 +1,5 @@
 # 🚚 Freight System
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 ## Test Coverage - SimpleCov
 ![image](https://user-images.githubusercontent.com/92264330/170708155-7d363d2d-03d6-48d0-a1c5-4ec9dd8a5128.png)
