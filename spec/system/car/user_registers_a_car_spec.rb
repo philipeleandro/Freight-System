@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Company user registers new car' do
   it 'in company index' do
-    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
+    user = User.create(name: 'user', email: 'admin@magalu.com', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -21,9 +21,10 @@ describe 'Company user registers new car' do
   end
 
   it 'success' do
-    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
-    user = User.create(name:'user', email:'admin@company.com.br', password:'12345678')
-    company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678974125', freight: 100, threshold: 500, user: admin)
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
+    user = User.create(name: 'user', email: 'admin@company.com.br', password: '12345678')
+    Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company',
+                   address: 'Rua das flores, 1000', cnpj: '12345678974125', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -45,9 +46,10 @@ describe 'Company user registers new car' do
   end
 
   it 'incomplete data' do
-    admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
-    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
-    company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678904789', freight: 100, threshold: 500, user: admin)
+    admin = User.create(name: 'admin', email: 'admin@sistemasdeentregas.com.br', password: '12345678')
+    user = User.create(name: 'user', email: 'admin@magalu.com', password: '12345678')
+    Company.create(corporate_name: 'Company LTDA', domain: 'company.com', brand_name: 'Company',
+                   address: 'Rua das flores, 1000', cnpj: '12345678904789', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -69,7 +71,7 @@ describe 'Company user registers new car' do
   end
 
   it 'Returns when click on Voltar' do
-    user = User.create(name:'user', email:'admin@magalu.com', password:'12345678')
+    user = User.create(name: 'user', email: 'admin@magalu.com', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -84,7 +86,7 @@ describe 'Company user registers new car' do
   end
 
   it 'user does not have registered company' do
-    user = User.create(name: 'Impact', email: 'user@impact.com.br', password: '12345678' )
+    user = User.create(name: 'Impact', email: 'user@impact.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -93,16 +95,16 @@ describe 'Company user registers new car' do
       click_on 'Entrar'
     end
     click_on 'Cadastrar Carro'
-  
+
     expect(page).to have_field 'Empresa'
-    expect(page).to have_select('Empresa', selected: "")
+    expect(page).to have_select('Empresa', selected: '')
   end
 
   it 'user belong another company' do
-    admin = User.create(name:'admin', email:'admin@sistemasdeentregas.com.br', password:'12345678')
-    user = User.create(name:'user', email:'admin@magalu.com.br', password:'12345678')
-    company = Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company', address: 'Rua das flores, 1000', cnpj: '12345678974125', freight: 100, threshold: 500, user: admin)
-
+    admin = User.create(name: 'admin', email: 'admin@sistemasdeentregas.com.br', password: '12345678')
+    user = User.create(name: 'user', email: 'admin@magalu.com.br', password: '12345678')
+    Company.create(corporate_name: 'Company LTDA', domain: 'company.com.br', brand_name: 'Company',
+                   address: 'Rua das flores, 1000', cnpj: '12345678974125', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -113,12 +115,11 @@ describe 'Company user registers new car' do
     click_on 'Cadastrar Carro'
     click_on 'Cadastrar'
 
-  
-    expect(page).to have_content("Carro não cadastrado")
-  end 
+    expect(page).to have_content('Carro não cadastrado')
+  end
 
   it 'admin tries to access new car page' do
-    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'

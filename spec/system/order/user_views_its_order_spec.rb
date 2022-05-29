@@ -4,10 +4,14 @@ describe 'User views orders' do
   it 'in user page' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
- 
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                 product: new_product)
+
     visit root_path
     click_on 'Entrar'
     login_as(user)
@@ -25,12 +29,20 @@ describe 'User views orders' do
   it 'Only its orders' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    company_two = Company.create(corporate_name: 'Imp LTDA', domain: 'imp.com.br', brand_name: 'Imp', address: 'Rua das flores, 1000', cnpj: '12345678974562', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    product_two = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASSS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua entregas, 700', company: company, product: product, status: 1)
-    order_two = Order.create(receiver_name: 'Lucas', delivery_address: 'Rua das entregas, 700', company: company_two, product: product_two)
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_company_two = Company.create(corporate_name: 'Imp LTDA', domain: 'imp.com.br', brand_name: 'Imp',
+                                     address: 'Rua das flores, 1000', cnpj: '12345678974562', freight: 100,
+                                     threshold: 500, user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    new_product_two = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASSS',
+                                     address: 'Rua viva, 10')
+    Order.create(receiver_name: 'Pedro', delivery_address: 'Rua entregas, 700', company: new_company,
+                 product: new_product, status: 1)
+    Order.create(receiver_name: 'Lucas', delivery_address: 'Rua das entregas, 700',
+                 company: new_company_two, product: new_product_two)
 
     visit root_path
     click_on 'Entrar'
@@ -46,7 +58,7 @@ describe 'User views orders' do
 
   it 'does not exist registered order' do
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
- 
+
     visit root_path
     click_on 'Entrar'
     login_as(user)

@@ -1,15 +1,15 @@
 class PricesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create]
+  before_action :authenticate_user!, only: %i[index new create]
   def index
-    if current_user.kind == "Regular"
+    if current_user.kind == 'Regular'
       @prices = Price.all
     else
       redirect_to companies_path, notice: 'Erro ao carregar a página'
     end
   end
-  
+
   def new
-    if current_user.kind == "Regular"
+    if current_user.kind == 'Regular'
       @price = Price.new
     else
       redirect_to companies_path, notice: 'Erro ao carregar a página'
@@ -28,6 +28,7 @@ class PricesController < ApplicationController
   end
 
   private
+
   def price_params
     params.require(:price).permit(:min_volume, :max_volume, :min_weight, :max_weight, :value, :company_id)
   end

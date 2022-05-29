@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Admin registers new company' do
   it 'in admin homepage' do
-    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -22,7 +22,7 @@ describe 'Admin registers new company' do
   end
 
   it 'success' do
-    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -50,7 +50,7 @@ describe 'Admin registers new company' do
   end
 
   it 'not admin' do
-    user = User.create(name:'user', email:'admin@sistemadeentregas.com', password:'12345678')
+    user = User.create(name: 'user', email: 'admin@sistemadeentregas.com', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -65,7 +65,7 @@ describe 'Admin registers new company' do
   end
 
   it 'fail' do
-    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -81,7 +81,7 @@ describe 'Admin registers new company' do
   end
 
   it 'not admin' do
-    user = User.create(name:'user', email:'admin@sistemadeentregas.com', password:'12345678')
+    user = User.create(name: 'user', email: 'admin@sistemadeentregas.com', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -96,7 +96,7 @@ describe 'Admin registers new company' do
   end
 
   it 'Returns when click on Voltar' do
-    admin = User.create(name:'admin', email:'admin@sistemadeentregas.com.br', password:'12345678')
+    admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'
@@ -111,7 +111,7 @@ describe 'Admin registers new company' do
   end
 
   it 'not admin and try to create company' do
-    user = User.create(name:'user', email:'admin@sistemadeentregas.com', password:'12345678')
+    user = User.create(name: 'user', email: 'admin@sistemadeentregas.com', password: '12345678')
 
     visit root_path
     click_on 'Entrar'

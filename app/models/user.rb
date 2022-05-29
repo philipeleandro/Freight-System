@@ -7,15 +7,14 @@ class User < ApplicationRecord
 
   attribute :kind, default: :set_role
   after_create :set_role
-   
+
   def set_role
     set_user = User.last
-    if set_user.email.split("@").last == "sistemadeentregas.com.br"
-      set_user.kind = "Admin"
-      set_user.save
-    else 
-      set_user.kind = "Regular"
-      set_user.save
-    end
+    set_user.kind = if set_user.email.split('@').last == 'sistemadeentregas.com.br'
+                      'Admin'
+                    else
+                      'Regular'
+                    end
+    set_user.save
   end
 end

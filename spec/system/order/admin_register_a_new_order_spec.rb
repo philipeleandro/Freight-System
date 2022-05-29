@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'Admin register a new order' do
   it 'in admin page' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
+    Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                   address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -28,8 +29,8 @@ describe 'Admin register a new order' do
 
   it 'success' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    
+    Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                   address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -56,7 +57,8 @@ describe 'Admin register a new order' do
 
   it 'fail' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '74125896321456', freight: 100, threshold: 500, user: admin)
+    Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                   address: 'Rua das flores, 1000', cnpj: '74125896321456', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -74,7 +76,8 @@ describe 'Admin register a new order' do
 
   it 'Returns when click on Voltar' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
+    Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                   address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
 
     visit root_path
     click_on 'Entrar'
@@ -85,13 +88,13 @@ describe 'Admin register a new order' do
     click_on 'Criar Ordem de Serviço'
     click_on 'Voltar'
 
-
     expect(current_path).to eq companies_path
   end
 
   it 'user not admin tries to create order' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '74125896321456', freight: 100, threshold: 500, user: admin)
+    Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                   address: 'Rua das flores, 1000', cnpj: '74125896321456', freight: 100, threshold: 500, user: admin)
     user = User.create(name: 'Impact', email: 'user@impact.com.br', password: '12345678')
 
     visit root_path

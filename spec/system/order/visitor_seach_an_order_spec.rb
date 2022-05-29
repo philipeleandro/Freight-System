@@ -10,10 +10,14 @@ describe 'Visitor searches an order' do
 
   it 'success' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product, position: 'Galpão de Minas', date: Date.today , time: Time.now )
+    User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                         product: new_product, position: 'Galpão de Minas', date: Date.today, time: Time.now)
 
     visit root_path
     fill_in 'Buscar Pedido', with: order.code
@@ -22,15 +26,19 @@ describe 'Visitor searches an order' do
     expect(page).to have_content("Resultado da busca por: #{order.code}")
     expect(page).to have_content('Origem: Rua viva, 10')
     expect(page).to have_content('Destino: Rua das entregas, 700')
-    expect(page).to have_content("Ultima Atualização: Galpão de Minas, #{I18n.localize(Date.today)}, #{order.time.strftime("%R")}")
+    expect(page).to have_content("Ultima Atualização: Galpão de Minas, #{I18n.localize(Date.today)}, #{order.time.strftime('%R')}")
   end
 
   it 'order does not have position' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
+    User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                         product: new_product)
 
     visit root_path
     fill_in 'Buscar Pedido', with: order.code
@@ -39,7 +47,7 @@ describe 'Visitor searches an order' do
     expect(page).to have_content("Resultado da busca por: #{order.code}")
     expect(page).to have_content('Origem: Rua viva, 10')
     expect(page).to have_content('Destino: Rua das entregas, 700')
-    expect(page).to have_content("Ultima Atualização: Ainda não atualizado")
+    expect(page).to have_content('Ultima Atualização: Ainda não atualizado')
   end
 
   it 'user do not see search bar' do
@@ -72,10 +80,14 @@ describe 'Visitor searches an order' do
 
   it 'returns when click on Voltar' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
-    user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
+    User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                         product: new_product)
 
     visit root_path
     fill_in 'Buscar Pedido', with: order.code

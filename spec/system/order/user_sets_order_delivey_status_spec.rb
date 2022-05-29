@@ -4,11 +4,17 @@ describe 'User update delivey status' do
   it 'User does not see link to update position' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
-    order_two = Order.create(status: 'finished', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
-    order_two = Order.create(status: 'refused', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                 product: new_product)
+    Order.create(status: 'finished', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700',
+                 company: new_company, product: new_product)
+    Order.create(status: 'refused', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700',
+                 company: new_company, product: new_product)
 
     visit root_path
     click_on 'Entrar'
@@ -24,10 +30,15 @@ describe 'User update delivey status' do
   it 'User sees link to update position' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(status: 'in_progress', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
-    order_two = Order.create(status: 'accepted', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    Order.create(status: 'in_progress', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700',
+                 company: new_company, product: new_product)
+    Order.create(status: 'accepted', receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700',
+                 company: new_company, product: new_product)
 
     visit root_path
     click_on 'Entrar'
@@ -43,9 +54,13 @@ describe 'User update delivey status' do
   it 'success' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                 product: new_product)
 
     visit root_path
     click_on 'Entrar'
@@ -71,9 +86,13 @@ describe 'User update delivey status' do
   it 'incomplete data' do
     admin = User.create(name: 'admin', email: 'admin@sistemadeentregas.com.br', password: '12345678')
     user = User.create(name: 'Philipe', email: 'philipe@impact.com.br', password: '12345678')
-    company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact', address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500, user: admin)
-    product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS', address: 'Rua viva, 10')
-    order = Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: company, product: product)
+    new_company = Company.create(corporate_name: 'Impact', domain: 'impact.com.br', brand_name: 'Impact',
+                                 address: 'Rua das flores, 1000', cnpj: '12345678974568', freight: 100, threshold: 500,
+                                 user: admin)
+    new_product = Product.create(depth: 10, height: 20, width: 20, weight: 15, sku: 'ASD231ASDS',
+                                 address: 'Rua viva, 10')
+    Order.create(receiver_name: 'Pedro', delivery_address: 'Rua das entregas, 700', company: new_company,
+                 product: new_product)
 
     visit root_path
     click_on 'Entrar'

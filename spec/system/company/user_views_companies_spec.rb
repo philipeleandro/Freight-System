@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Admin views companies' do
   it 'in admin homepage' do
-    admin = User.create(name: "Philipe", email: "testing@sistemadeentregas.com.br", password:'12345678')
+    admin = User.create(name: 'Philipe', email: 'testing@sistemadeentregas.com.br', password: '12345678')
 
     visit root_path
     click_on 'Entrar'

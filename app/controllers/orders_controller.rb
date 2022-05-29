@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create]
+  before_action :authenticate_user!, only: %i[index new create]
 
   def index
     @orders = Order.all
@@ -37,23 +37,23 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
 
-    if @order.update(order_params)
-      redirect_to orders_path, notice: 'Ordem de serviço atualizada'
-    end
+    redirect_to orders_path, notice: 'Ordem de serviço atualizada' if @order.update(order_params)
   end
 
   def search
-    @code = params["query"]
+    @code = params['query']
     @order = Order.find_by(code: @code)
     @product = Product.find_by(id: @order.product_id)
   end
 
   private
+
   def product_params
-    params.require(:order)["product"].permit(:width, :depth, :height, :weight, :sku, :address)
+    params.require(:order)['product'].permit(:width, :depth, :height, :weight, :sku, :address)
   end
 
   def order_params
-    params.require(:order).permit(:receiver_name, :delivery_address, :company_id, :car_id, :code, :status, :product_id, :date, :position, :time) 
+    params.require(:order).permit(:receiver_name, :delivery_address, :company_id, :car_id, :code, :status, :product_id,
+                                  :date, :position, :time)
   end
 end

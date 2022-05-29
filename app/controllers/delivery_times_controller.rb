@@ -1,16 +1,16 @@
 class DeliveryTimesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def index
-    if current_user.kind == "Regular"
+    if current_user.kind == 'Regular'
       @delivery_times = DeliveryTime.all
     else
       redirect_to companies_path, notice: 'Erro ao carregar a página'
     end
   end
-  
+
   def new
-    if current_user.kind == "Regular"
+    if current_user.kind == 'Regular'
       @delivery_time = DeliveryTime.new
     else
       redirect_to companies_path, notice: 'Erro ao carregar a página'
@@ -29,6 +29,7 @@ class DeliveryTimesController < ApplicationController
   end
 
   private
+
   def delivery_time_params
     params.require(:delivery_time).permit(:min_distance, :max_distance, :days, :company_id)
   end
