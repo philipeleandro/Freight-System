@@ -2,6 +2,9 @@
 ### Generic smell configuration
 
 detectors:
+  RepeatedConditional:
+    enabled: true
+    max_ifs: 4
   # You can disable smells completely
   IrresponsibleModule:
     enabled: false
@@ -17,16 +20,7 @@ detectors:
     exclude:
       - "Users::SessionsController#create"
       - "Seeds"
-    max_statements: 6
-  TooManyMethods:
-    exclude:
-      - "Seeds"
-  InstanceVariableAssumption:
-    exclude:
-      - "Seeds"
-  TooManyInstanceVariables:
-    exclude:
-      - "Seeds"
+    max_statements: 8
   # A lot of smells allow fine tuning their configuration. You can look up all available options
   # in the corresponding smell documentation in /docs. In most cases you probably can just go
   # with the defaults as documented in defaults.reek.yml.

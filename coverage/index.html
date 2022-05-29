@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-29T15:28:02-03:00">2022-05-29T15:28:02-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-29T15:59:06-03:00">2022-05-29T15:59:06-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -1623,7 +1623,7 @@
 
             
 
-            <code class="ruby">      @volume = (BigDecimal(height) * BigDecimal(depth) * BigDecimal(width)) / 1_000_000</code>
+            <code class="ruby">      volume = (BigDecimal(height) * BigDecimal(depth) * BigDecimal(width)) / 1_000_000</code>
           </li>
         </div>
       
@@ -1645,7 +1645,7 @@
 
             
 
-            <code class="ruby">      @prices = Price.where(&#39;min_volume &lt;= ? AND max_volume &gt;= ? AND min_weight &lt;= ? AND max_weight &gt;= ?&#39;, @volume,</code>
+            <code class="ruby">      @prices = Price.where(&#39;min_volume &lt;= ? AND max_volume &gt;= ? AND min_weight &lt;= ? AND max_weight &gt;= ?&#39;, volume,</code>
           </li>
         </div>
       
@@ -1656,7 +1656,7 @@
 
             
 
-            <code class="ruby">                            @volume, weight, weight)</code>
+            <code class="ruby">                            volume, weight, weight)</code>
           </li>
         </div>
       

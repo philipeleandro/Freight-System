@@ -36,10 +36,10 @@ class CompaniesController < ApplicationController
       height = params['height'].to_i
       width = params['width'].to_i
       @distance = params['distance'].to_i
-      @volume = (BigDecimal(height) * BigDecimal(depth) * BigDecimal(width)) / 1_000_000
+      volume = (BigDecimal(height) * BigDecimal(depth) * BigDecimal(width)) / 1_000_000
 
-      @prices = Price.where('min_volume <= ? AND max_volume >= ? AND min_weight <= ? AND max_weight >= ?', @volume,
-                            @volume, weight, weight)
+      @prices = Price.where('min_volume <= ? AND max_volume >= ? AND min_weight <= ? AND max_weight >= ?', volume,
+                            volume, weight, weight)
     else
       redirect_to root_path, notice: 'Página indisponível'
     end
