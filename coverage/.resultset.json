@@ -2700,6 +2700,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/home_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           160,
@@ -2715,6 +2717,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/application_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -2729,6 +2733,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/cars_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -2760,6 +2766,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/companies_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -2816,6 +2824,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/delivery_times_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -2856,6 +2866,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/orders_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -2919,6 +2931,8 @@
       },
       "/home/philipe/Desktop/freight_system/app/controllers/prices_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -2957,6 +2971,6 @@
         ]
       }
     },
-    "timestamp": 1653846750
+    "timestamp": 1653848882
   }
 }

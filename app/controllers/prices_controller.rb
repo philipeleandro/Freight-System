@@ -1,3 +1,5 @@
+# Price's Actions
+
 class PricesController < ApplicationController
   before_action :authenticate_user!, only: %i[index new create]
   def index

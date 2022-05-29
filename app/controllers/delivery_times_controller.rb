@@ -1,3 +1,5 @@
+# DeliveryTimes Actions
+
 class DeliveryTimesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 

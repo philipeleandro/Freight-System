@@ -1,3 +1,5 @@
+# Remove columns from orders
+ 
 class RemoveAttrFromOrder < ActiveRecord::Migration[7.0]
   def change
     remove_column :orders, :width, :integer

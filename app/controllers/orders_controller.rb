@@ -1,3 +1,5 @@
+# Order's Action
+
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: %i[index new create]
 
