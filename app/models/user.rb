@@ -5,16 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
 
-  attribute :kind, default: :set_role
+  attribute :kind, default: "Regular"
   after_create :set_role
 
   def set_role
     set_user = User.last
-    set_user.kind = if set_user.email.split('@').last == 'sistemadeentregas.com.br'
-                      'Admin'
-                    else
-                      'Regular'
-                    end
-    set_user.save
+    if set_user.email.split("@").last == "sistemadeentregas.com.br"
+      set_user.kind = "Admin"
+      set_user.save
+    end
   end
 end
