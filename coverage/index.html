@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-29T16:01:54-03:00">2022-05-29T16:01:54-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-31T10:08:40-03:00">2022-05-31T10:08:40-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.9
+         1.79
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>1483</b> relevant lines,
-    <span class="green"><b>1483</b> lines covered</span> and
+    <b>1482</b> relevant lines,
+    <span class="green"><b>1482</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -238,11 +238,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#7de01559b653a1bfe0248e74d81e89e5571e7f87" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">20</td>
-            <td class="cell--number">11</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">18</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">52.18</td>
+            <td class="cell--number">41.40</td>
             
           </tr>
         
@@ -4515,8 +4515,8 @@
     
 
     <div class="t-line-summary">
-      <b>11</b> relevant lines.
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>10</b> relevant lines.
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4611,7 +4611,7 @@
 
             
 
-            <code class="ruby">  attribute :kind, default: :set_role</code>
+            <code class="ruby">  attribute :kind, default: &quot;Regular&quot;</code>
           </li>
         </div>
       
@@ -4666,7 +4666,7 @@
 
             
 
-            <code class="ruby">    set_user.kind = if set_user.email.split(&#39;@&#39;).last == &#39;sistemadeentregas.com.br&#39;</code>
+            <code class="ruby">    if set_user.email.split(&quot;@&quot;).last == &quot;sistemadeentregas.com.br&quot;</code>
           </li>
         </div>
       
@@ -4677,29 +4677,29 @@
 
             
 
-            <code class="ruby">                      &#39;Admin&#39;</code>
+            <code class="ruby">      set_user.kind = &quot;Admin&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
+          <li class="covered" data-hits="62" data-linenumber="15">
+            <span class="hits">62</span>
             
 
-            <code class="ruby">                    else</code>
+            
+
+            <code class="ruby">      set_user.save</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="80" data-linenumber="16">
-            <span class="hits">80</span>
+          <li class="never" data-hits="" data-linenumber="16">
+            
             
 
             
 
-            <code class="ruby">                      &#39;Regular&#39;</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -4710,34 +4710,12 @@
 
             
 
-            <code class="ruby">                    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="142" data-linenumber="18">
-            <span class="hits">142</span>
-            
-
-            
-
-            <code class="ruby">    set_user.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
-            
-
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
